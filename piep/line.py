@@ -116,3 +116,4 @@ class Line(str):
 	__mul__		 = wrap(str.__mul__)
 	__rmod__	 = wrap(str.__rmod__)
 	__rmul__	 = wrap(str.__rmul__)
+

@@ -412,3 +412,4 @@ def take(n, it, stop_short=False):
 		if stop_short:
 			return results
 		raise
+

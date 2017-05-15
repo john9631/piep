@@ -76,4 +76,3 @@ def check_for_failed_commands():
 		if not cmd.checked:
 			cmd.wait()
 	active_commands = []
-
