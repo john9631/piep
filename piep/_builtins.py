@@ -31,7 +31,7 @@ import subprocess
 import re, os, sys
 if sys.version_info[0] > 2:
     import builtins as __builtin__
-    basestr = str
+    basestring = str
 else:
     import __builtin__
 
