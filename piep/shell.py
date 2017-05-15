@@ -1,5 +1,5 @@
 from __future__ import print_function
-import subprocess
+import subprocess, sys
 from piep.error import Exit
 from piep.line import Line
 
@@ -22,7 +22,10 @@ class Command(object):
     def _spawn(self):
         if self.proc is None:
             try:
-                self.proc = subprocess.Popen(self.cmd, **self.kwargs)
+                if sys.version_info[0] > 2:
+                    self.proc = subprocess.Popen(self.cmd)
+                else:
+                    self.proc = subprocess.Popen(self.cmd, **self.kwargs)
             except OSError as e:
                 raise Exit("error executing %r: %s" % (list(self.cmd), e))
 
