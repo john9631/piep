@@ -1,0 +1,31 @@
+Changes made by John Lynch, May 2017 to adapt for Python 3.6
+
+No changes to:
+* error.py
+* line.py
+
+
+* __init__.py
+  add import _builtins
+
+* setup.py
+aim to support both 2.7 and 3.5+ by switches in modules
+  so remove python>=2.6 from install_requires
+
+* shell.py, _spawn requires a correction to try except syntax 
+    plus removal of kwargs from self.proc (compile error)
+* also changed error to OSError as from OSError,
+
+* builtins.py
+  import __builtins__ with 3+ so change filename to _builtins.py
+    and add > 2 test in imports (also defines basestr = str for 2+)
+  ## dont know why line 47 uses warn( ????) 
+
+* sequence.py
+  import sys and redefine ixxx to xxx for python > 2
+  rebuild defined_items for python > 2 as test uses iterator
+
+* main.py
+  a lot of changes including exec, list on map 
+  problems with both 2 & 3 exec variants in 1 file lead to 2 new files
+    & import to create _exec
